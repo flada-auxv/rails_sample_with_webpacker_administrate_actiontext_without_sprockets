@@ -1,0 +1,69 @@
+@charset "utf-8";
+
+<% administrate_css_path = File.join(Gem.loaded_specs['administrate'].full_gem_path, 'app', 'assets', 'stylesheets') %>
+
+@import "<%= File.join(administrate_css_path, 'administrate/reset/normalize') %>";
+
+@import "<%= File.join(administrate_css_path, 'administrate/library/clearfix') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/library/data-label') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/library/variables') %>";
+
+@import "<%= File.join(administrate_css_path, 'administrate/base/forms') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/base/layout') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/base/lists') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/base/tables') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/base/typography') %>";
+
+@import "<%= File.join(administrate_css_path, 'administrate/components/app-container') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/attributes') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/buttons') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/cells') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/field-unit') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/flashes') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/form-actions') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/main-content') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/navigation') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/pagination') %>";
+@import "<%= File.join(administrate_css_path, 'administrate/components/search') %>";
+
+@import "<%= File.join(administrate_css_path, 'administrate/utilities/text-color') %>";
+
+@import "trix/dist/trix";
+
+// We need to override trix.css’s image gallery styles to accommodate the
+// <action-text-attachment> element we wrap around attachments. Otherwise,
+// images in galleries will be squished by the max-width: 33%; rule.
+.trix-content {
+  .attachment-gallery {
+    > action-text-attachment,
+    > .attachment {
+      flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%;
+    }
+
+    &.attachment-gallery--2,
+    &.attachment-gallery--4 {
+      > action-text-attachment,
+      > .attachment {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+
+  action-text-attachment {
+    .attachment {
+      padding: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+.field-unit--rich-text-area-field {
+  .field-unit__field {
+    width: 80%;
+  }
+}
+
+@import "flatpickr/dist/flatpickr.min";
