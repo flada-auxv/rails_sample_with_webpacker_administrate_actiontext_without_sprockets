@@ -22,8 +22,7 @@ By default, it renders:
       <%= content_for(:title) || 'Dashboard' %> - <%= Rails.application.class.module_parent_name.titlecase %>
     </title>
     <%= javascript_pack_tag 'administrate', 'data-turbolinks-track': 'reload' %>
-
-    <%= render "stylesheet" %>
+    <%= stylesheet_pack_tag 'stylesheets/administrate' %>
     <%= csrf_meta_tags %>
 
 
